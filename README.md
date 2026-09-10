@@ -1,55 +1,53 @@
-# 🕹️ Senior Game Server Engineer (13년 차 게임 서버 개발자)
+# 🕹️ Senior Game Server Programmer
 
-13년간 실시간 PvP 게임의 **서버 아키텍처 설계**와 **대규모 라이브 운영**의 핵심 역할을 수행해 왔습니다. 
-단순히 기능을 구현하는 것을 넘어, 서버 엔진의 핵심 모듈부터 대규모 분산 시스템까지 **'코어부터의 설계와 최적화'**를 지향합니다.
+13년간 글로벌 대규모 트래픽 환경에서 실시간 멀티플레이어 서버 아키텍처 설계와 라이브 운영 전 과정을 주도해 온 서버 개발자입니다. 단순히 주어진 비즈니스 로직을 구현하는 것을 넘어, 대규모 접속 환경에서도 흔들림 없는 글로벌 분산 아키텍처를 설계하고 잠재적 병목을 선제적으로 차단하는 **'견고한 시스템 구축'**을 지향합니다.
 
 ---
 
-## 🚀 Current Deep-Dive
-### **[SP.Engine](https://github.com/spilbum/SP.Engine)**: TCP/UDP Hybrid Game Server Engine
-*과거 라이브 서비스용 엔진의 핵심 모듈을 개발했던 노하우를 집대성하여, 1인 개발로 구축 중인 고성능 게임 서버 엔진입니다.* 
+## 🚀 Current Deep-Dive (Side Project)
+### **[SP.Engine](https://github.com/spilbum/SP.Engine)**: .NET 8 기반 고성능 실시간 게임 서버 엔진
+*13년 간의 대규모 실시간 서버 개발 노하우를 집대성하여, GC 스파이크와 락 경합(Lock Contention)을 원천 차단하기 위해 단독 개발 중인 게임 서버 레퍼런스 아키텍처입니다.*
 
-- **Core Architecture**: TCP/UDP 하이브리드 통신 모델 및 가변 네트워크 대응 세션 복원 메커니즘 설계 
-- **Network Optimization**: 바이너리 패킷 직렬화 구조 설계 및 고성능 네트워크 IO 처리 최적화 
-- **Security**: Diffie-Hellman 키 교환 및 AES 암호화 알고리즘 기반 보안 모듈 독립 구현 
+- **Lock-Free Runtime**: 다중 접속 환경의 동기화 병목을 제거하기 위한 Fiber 기반 가상 스레드 큐 내장
+- **Zero-Reflection**: 런타임 오버헤드를 배제하기 위해 초기화 시점에 동적 IL(Emit)을 컴파일하는 초고속 패킷 직렬화 파이프라인
+- **Hybrid Network & Resumption**: 모바일 환경의 잦은 단선에 대비한 무중단 세션 복구 및 TCP/UDP(가변 MTU 파편화 조립 내장) 하이브리드 스택
 
 ---
 
 ## 💼 Professional Experience
 
-### **Mini Golf King** (2019.08 ~ 2021.10)
-*실시간 PvP 미니 골프 게임 | 라이브 서비스 안정화 및 콘텐츠 확장*
-- 레거시 시스템 분석 및 리팩토링을 통한 서버 안정성 확보 및 라이브 장애 대응 
-- 티어 기반 매칭, Zone 점령, 시즌제 랭킹·보상 시스템 등 핵심 게임 로직 개발 
+### **Dodge Royal** (실시간 서바이벌 PvP) | 2024.01 ~ 2024.08
+- 글로벌 원빌드 환경에서 다중 리전 RTT 분석 기반의 동적 매칭 시스템을 설계하여 네트워크 레이턴시 최적화
+- 동적 코드 생성(IL Emit) 기법으로 MS SQL 연동 시 발생하는 리플렉션 오버헤드를 제거하고 데이터 처리 속도 극대화
+- 실시간 대용량 랭킹 갱신의 탐색 비용을 O(1) 수준으로 최적화한 커스텀 자료구조(LinkedList-SortedSet) 설계
 
-### **BOWMAX** (2018.10 ~ 2019.07)
-*실시간 3v3 팀 PvP 게임 | 엔진 코어 모듈 및 글로벌 매칭 설계* 
-- **Engine Core**: Fiber 및 Queue 기반 비동기 스케줄러, 패킷 직렬화 및 보안 모듈 개발
-- **Global Matching**: AWS 다중 Region 환경에서 RTT 기반 최적 리전 선택 구조 구현
-- **Validation**: 시뮬레이션 툴을 활용한 대규모 접속/매칭/전투 부하 테스트 및 가용성 검증 
+### **Mini Golf King** (실시간 PvP 미니 골프) | 2019.08 ~ 2021.10
+- 라이브 서비스 중인 프로젝트에 합류하여 CCU 2,000명 규모의 무중단 서버 안정화 및 트러블슈팅 주도
+- 주니어 개발자 대상의 깐깐한 아키텍처 피드백과 코드 리뷰를 통해 프로젝트 전반의 퀄리티 방어 및 유지보수성 향상
 
-### **Rio 2016 Olympic Games** (2016.01 ~ 2016.10)
-*캐주얼 스포츠 게임 | 단독 서버 개발자로서 전체 백엔드 설계 및 구축* 
-- ASP.NET 기반의 확장 가능한 웹 서버 API 구조 설계 및 구현 
-- Redis SortedSet 기반의 글로벌/국가별 실시간 랭킹 시스템 설계 및 최적화 
-- MySQL 샤딩 및 Master-Slave 구조를 활용한 데이터 분산 저장 로직 개발 
+### **BOWMAX & Pnix.Engine** (실시간 3v3 팀 PvP & 사내 공용 엔진) | 2018.09 ~ 2019.07
+- **공용 엔진 개발**: 비동기 스케줄러, 패킷 직렬화, 암호화 등 서버 엔진 내 필수 코어 모듈 구현을 전담하여 전사 프레임워크로 자산화
+- **분산 아키텍처**: 매칭 서버와 배틀 서버를 분리한 다대다 분산 로직을 주도적으로 설계 및 구현
+- **가용성 검증**: 런칭 전 배틀 서버 자체 스트레스 테스트를 수행하여 시스템 수용 한계 측정 및 병목 선제 해결
 
-### **Silkroad Online** (2012.09 ~ 2014.09)
-*PC MMORPG | 대규모 트래픽 환경의 서버 운영 및 유지보수*
-- 대규모 MMORPG 서버의 데이터 처리 흐름 및 트래픽 구조 분석 
-- 실시간 장애 대응 및 버그 수정을 통한 서비스 안정성 유지 
+### **Rio 2016 Olympic Games** (캐주얼 스포츠) | 2016.01 ~ 2016.10
+- 글로벌 트래픽 확장에 유리한 Stateless 기반의 ASP.NET 웹 서버 아키텍처 전담 설계
+- 1,000만 유저 처리를 위한 Seed 해싱 기반 MySQL Sharding 및 Redis 활용 글로벌 랭킹 시스템 구축
+
+### **Silkroad Online** (PC MMORPG) | 2012.09 ~ 2014.09
+- 방대한 레거시 서버 코드 분석 및 글로벌 라이브 서비스 인게임 에러 신속 대응
 
 ---
 
-## 🛠 Technical Skill
+## 🛠 Technical Skills
 
 | Category | Details |
 | :--- | :--- |
-| **Languages** | C# (Expert), C++ |
-| **Framework** | .NET 8/Framework, ASP.NET |
-| **Network** | TCP/IP, WebSocket, HTTP |
+| **Languages** | C#, C++ |
+| **Frameworks** | .NET 8, .NET Framework, ASP.NET, WPF |
+| **Network** | TCP/IP, UDP, WebSocket, HTTP |
 | **Database** | MS SQL, MySQL, Redis |
-| **Infrastructure** | AWS (EC2, S3, ELB, CloudFront)  |
+| **Infra & Tools** | AWS (EC2, S3, CloudFront), Git, SVN |
 
 ---
 
